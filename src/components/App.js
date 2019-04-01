@@ -29,7 +29,7 @@ class App extends Component {
   render() {
     const { date } = this.state;
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Navigation />
         <main>
           <Switch>
