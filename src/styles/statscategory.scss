@@ -1,0 +1,45 @@
+@import './mediaquerys';
+@import './basic';
+
+.category {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 30px;
+        font-family: $main-font;
+        color: #ffffff;
+        padding: 30px 0;
+        text-transform: uppercase;
+        @include sm-phone() {
+            width: 300px;
+        }
+        @include tablet() {
+            margin: 0 20px;
+            margin-top: 30px;
+        }
+        &__heading {
+            font-size: 2.2rem;
+            font-family: $second-font;
+            margin-bottom: 10px;
+        }
+        &-list {
+            width: 100%;
+            list-style-type: none;
+            text-align: center;
+            font-size: 1.4rem;
+            &__item {
+                margin: 10px 0;
+            }
+        }
+    }
+    .solo {
+        background-color: #ED4C67;
+    }
+    .duo {
+        background-color: #A3CB38;
+    }
+    .squad {
+        background-color: #12CBC4;
+    }

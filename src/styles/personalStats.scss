@@ -1,0 +1,47 @@
+@import './mediaquerys';
+@import './basic';
+
+.user-stats {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 10px;
+    list-style-type: none;
+    background-color: $main-color;
+    font-family: $main-font;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    justify-items: center;
+    align-items: center;
+    @include sm-phone() {
+        width: 300px;
+    }
+    @include tablet() {
+        width: 500px;
+        grid-template-columns: repeat(3, auto);
+    }
+    @include desktop() {
+        width: 700px;
+        grid-template-columns: repeat(5, auto);
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__icon {
+        width: 50px;
+        margin-bottom: 10px;
+    }
+    &__category {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 3px;
+        text-align: center;
+    }
+}
