@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Fortnite_Fan_App/precache-manifest.bdb60453d920a4f90d09c4770674c061.js"
+  "/Fortnite_Fan_App/precache-manifest.45551b2ca6b4971f6964f1e6c5bce1e7.js"
 );
 
 workbox.clientsClaim();
