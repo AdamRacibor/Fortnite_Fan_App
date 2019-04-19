@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation';
 import Header from './Header';
 import News from './News';
@@ -29,7 +29,7 @@ class App extends Component {
   render() {
     const { date } = this.state;
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Navigation />
         <main>
           <Switch>

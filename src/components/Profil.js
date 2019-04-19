@@ -48,6 +48,7 @@ class Profil extends Component {
                 },
             ],
             informationStatus: false,
+            error: false,
         };
     }
 
@@ -126,44 +127,58 @@ class Profil extends Component {
         .then( uid => fetch(`https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats_v2?user_id=${uid}`) )
         .then( result => result.json() )
         .then((stats) => {
-            this.setState(() => {
-                return ({
-                    nick: stats.epicName,
-                    player: this.createPlayer(stats.overallData.defaultModes),
-                    matches: this.createMatches(stats.data.keyboardmouse),
-                    informationStatus: true,
+            if (stats.data.length === 0) {
+                this.setState(() => {
+                    return ({
+                        error: true,
+                    });
+                })
+            } else {
+                this.setState(() => {
+                    return ({
+                        nick: stats.epicName,
+                        player: this.createPlayer(stats.overallData.defaultModes),
+                        matches: this.createMatches(stats.data.keyboardmouse),
+                        informationStatus: true,
+                    });
                 });
-            });
+            }
         });
     }
 
     render() {
-        const { nick, player, matches, informationStatus } = this.state;
+        const { nick, player, matches, informationStatus, error } = this.state;
 
         return (
-            <section className="section-profil">
-                <div className="container">
-                    <figure>
-                        <img id="user-avatar" className="avatar" src={profilIMG} alt="" />
-                        <figcaption className="avatar__name">{nick}</figcaption>
-                    </figure>
-                    {
-                        informationStatus && (
-                            <>
-                            <PersonalStats stats={player} />
-                            <div className="categoris">
-                                {
-                                    matches.map(el => (
-                                        <StatsCategory key={el.name} matches={el} />
-                                    ))
-                                }
-                            </div>
-                            </>
-                        )
-                    }
-                </div>
-            </section>
-        )
+                error === true ? (
+                    <div className="error">
+                        <p className="error__text">Player doesn't exist !!!!</p>
+                    </div>
+                ) : (
+                    <section className="section-profil">
+                        <div className="container">
+                            <figure>
+                                <img id="user-avatar" className="avatar" src={profilIMG} alt="" />
+                                <figcaption className="avatar__name">{nick}</figcaption>
+                            </figure>
+                            {
+                                informationStatus && (
+                                    <>
+                                        <PersonalStats stats={player} />
+                                        <div className="categoris">
+                                            {
+                                                matches.map(el => (
+                                                    <StatsCategory key={el.name} matches={el} />
+                                                ))
+                                            }
+                                        </div>
+                                    </>
+                                )
+                            }
+                        </div>
+                    </section>
+                )
+        );
     }
 }
 
