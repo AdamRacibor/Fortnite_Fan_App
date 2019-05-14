@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/Fortnite_Fan_App/static/media/hair-cross.f284c208.svg"
   },
   {
-    "revision": "0fcbd0071296b8bb1eec",
-    "url": "/Fortnite_Fan_App/static/css/main.a8eab072.chunk.css"
+    "revision": "2ba45ca97cd2fb1ff91d",
+    "url": "/Fortnite_Fan_App/static/css/main.32de7c96.chunk.css"
   },
   {
     "revision": "a68073050a6e6c5677d1",
@@ -36,8 +36,8 @@ self.__precacheManifest = [
     "url": "/Fortnite_Fan_App/static/media/profil-1.ed4b5136.png"
   },
   {
-    "revision": "0fcbd0071296b8bb1eec",
-    "url": "/Fortnite_Fan_App/static/js/main.8878dbfe.chunk.js"
+    "revision": "2ba45ca97cd2fb1ff91d",
+    "url": "/Fortnite_Fan_App/static/js/main.1547b991.chunk.js"
   },
   {
     "revision": "fb91c22cdf793edc5ede4e11049fb642",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/Fortnite_Fan_App/static/media/stats-bg.63e80aea.png"
   },
   {
-    "revision": "8b9c843d5083dd84f484f40ff75fabda",
+    "revision": "37e413440eda5582915de23f14a44f2d",
     "url": "/Fortnite_Fan_App/index.html"
   }
 ];
