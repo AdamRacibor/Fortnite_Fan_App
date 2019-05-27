@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation';
 import Header from './Header';
