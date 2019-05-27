@@ -127,8 +127,7 @@ class Profil extends Component {
         .then( uid => fetch(`https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats_v2?user_id=${uid}`) )
         .then( result => result.json() )
         .then((stats) => {
-            console.log(stats);
-            if (stats.success === false) {
+            if (stats.success === false || stats.devices.length === 0) {
                 this.setState(() => {
                     return ({
                         error: true,

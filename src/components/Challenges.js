@@ -15,7 +15,6 @@ class Challenges extends Component {
         const state = JSON.parse(sessionStorage.getItem("Challanges"));
 
         if(state) {
-            console.log(state);
             this.setState(() => state);
         } else {
             const url = `https://fortnite-public-api.theapinetwork.com/prod09/challenges/get?season=current`;

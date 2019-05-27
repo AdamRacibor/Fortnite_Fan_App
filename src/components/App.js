@@ -1,12 +1,12 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import Navigation from './Navigation';
-import Header from './Header';
-import News from './News';
-import Store from './Store';
-import Challenges from './Challenges';
-import Stats from './Stats';
-import Profil from './Profil';
+const Navigation = lazy(() => import('./Navigation'));
+const Header = lazy(() => import('./Header'));
+const News = lazy(() => import('./News'));
+const Store = lazy(() => import('./Store'));
+const Challenges = lazy(() => import('./Challenges'));
+const Stats = lazy(() => import('./Stats'));
+const Profil = lazy(() => import('./Profil'));
 
 class App extends Component {
   constructor(props) {
@@ -30,17 +30,19 @@ class App extends Component {
     const { date } = this.state;
     return (
       <Router>
-        <Navigation />
-        <main>
-          <Switch>
-            <Route path="/" exact component={Header} />
-            <Route path="/news" component={() => <News date={date} />} />
-            <Route path="/store" component={() => <Store date={date} />} />
-            <Route path="/challenges" component={Challenges} />
-            <Route path="/stats" component={Stats} />
-            <Route path="/profil/:userNick" component={Profil} />
-          </Switch>
-        </main>
+        <Suspense fallback={<div>Loading ...</div>}>
+          <Navigation />
+          <main>
+            <Switch>
+              <Route path="/" exact component={Header} />
+              <Route path="/news" component={() => <News date={date} />} />
+              <Route path="/store" component={() => <Store date={date} />} />
+              <Route path="/challenges" component={Challenges} />
+              <Route path="/stats" component={Stats} />
+              <Route path="/profil/:userNick" component={Profil} />
+            </Switch>
+          </main>
+        </Suspense>
       </Router>
     );
   }
